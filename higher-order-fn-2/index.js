@@ -9,7 +9,7 @@
 //     return output;
 // }
 
-// // console.log(calculateArea(radius));
+// console.log(calculateArea(radius));
 
 
 // const calculateCircum = (radius) => {
@@ -42,7 +42,7 @@
 // instead of writing repeating code, just write 
 // just write higher order function like this;
 
-const radius = [1, 2, 3, 4];
+// const radius = [1, 2, 3, 4];
 
 const area = (radius) => {
     return Math.PI * radius * radius;
@@ -56,18 +56,20 @@ const diameter = (radius) => {
     return 2 * radius;
 };
 
-const calculate = (radius, logic) => {
+const calculate = (radius, callback) => {
+    // let cache = {};
     const output = [];
     for(let i = 0; i < radius.length; i++) {
-        output.push(logic(radius[i]));
+        output.push(callback(radius[i]));
     }
     return output;
     
 };
+const radius = [1, 2, 3, 4];
 
-console.log(calculate(radius, area));
-console.log(calculate(radius, diameter));
-console.log(calculate(radius, circum));
+console.table(calculate(radius, area));
+console.table(calculate(radius, diameter));
+console.table(calculate(radius, circum));
 
 
 
